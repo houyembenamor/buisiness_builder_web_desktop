@@ -17,6 +17,8 @@ public class Event implements Serializable {
 
 	  
 	@Id
+	@Column(name="idEvent")
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int idEvent;
 	@ManyToMany
 	private List <PartnerResearcher> partnerResearchers;
@@ -28,6 +30,19 @@ public class Event implements Serializable {
 	private Date dateEvent;
 	private String photo;
 	private int capacity;
+	private String lieu;
+	public CompanyManager getCompanyManager() {
+		return companyManager;
+	}
+	public void setCompanyManager(CompanyManager companyManager) {
+		this.companyManager = companyManager;
+	}
+	public String getLieu() {
+		return lieu;
+	}
+	public void setLieu(String lieu) {
+		this.lieu = lieu;
+	}
 	private static final long serialVersionUID = 1L;
 
 	public Event() {

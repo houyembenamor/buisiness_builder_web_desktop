@@ -15,7 +15,7 @@ import javax.persistence.*;
 public class CompanyManager extends User implements Serializable {
 	@OneToMany(mappedBy="companyManager")
 	private List<PartnershipOffer>partnershipoffers;
-	@OneToMany(mappedBy="companyManager")
+	@OneToMany(mappedBy="companyManager",cascade = CascadeType.MERGE)
 	private List<Event> events;
 	@OneToMany(mappedBy="companyManager")
 	private List <JobOffer> jobOffers;

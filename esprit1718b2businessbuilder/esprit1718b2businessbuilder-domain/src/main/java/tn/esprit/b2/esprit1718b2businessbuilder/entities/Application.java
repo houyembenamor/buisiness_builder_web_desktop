@@ -1,10 +1,10 @@
 package tn.esprit.b2.esprit1718b2businessbuilder.entities;
 
 import java.io.Serializable;
-import java.util.Date;
+
 
 import javax.persistence.*;
-
+import javax.persistence.JoinColumn;
 /**
  * Entity implementation class for Entity: Application
  *
@@ -15,7 +15,13 @@ public class Application implements Serializable {
     
 	@EmbeddedId
 	private ApplicationPK applicationpk;
-	private Date applicationDate;
+	
+	@ManyToOne
+	@JoinColumn(name = "idUser", referencedColumnName = "idUser", updatable = false, insertable = false)
+	private Candidate candidate;
+	@ManyToOne
+	@JoinColumn(name = "idOffer", referencedColumnName = "idOffer", updatable = false, insertable = false)
+	private JobOffer joboffer;
 	private static final long serialVersionUID = 1L;
 
 	public Application() {
@@ -28,12 +34,6 @@ public class Application implements Serializable {
 	public void setApplicationpk(ApplicationPK applicationpk) {
 		this.applicationpk = applicationpk;
 	}
-	public Date getApplicationDate() {
-		return this.applicationDate;
-	}
-
-	public void setApplicationDate(Date applicationDate) {
-		this.applicationDate = applicationDate;
-	}
+	
    
 }

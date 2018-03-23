@@ -1,12 +1,14 @@
 package tn.esprit.b2.esprit1718b2businessbuilder.entities;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.Embeddable;
 @Embeddable
 public class ApplicationPK implements Serializable {
 private int idOffer;
 private int idUser;
+private Date applicationDate;
 private static final long serialVersionUID = 1L;
 
 @Override
@@ -31,6 +33,24 @@ public boolean equals(Object obj) {
 	if (idUser != other.idUser)
 		return false;
 	return true;
+}
+public int getIdOffer() {
+	return idOffer;
+}
+public void setIdOffer(int idOffer) {
+	this.idOffer = idOffer;
+}
+public int getIdUser() {
+	return idUser;
+}
+public void setIdUser(int idUser) {
+	this.idUser = idUser;
+}
+public Date getApplicationDate() {
+	return applicationDate;
+}
+public void setApplicationDate(Date applicationDate) {
+	this.applicationDate = applicationDate;
 }
 
 }

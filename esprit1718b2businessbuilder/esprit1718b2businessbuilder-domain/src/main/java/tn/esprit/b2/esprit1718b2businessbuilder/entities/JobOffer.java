@@ -17,6 +17,8 @@ public class JobOffer implements Serializable {
 
 	   
 	@Id
+	@Column(name="idOffer")
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int idOffer;
 	@ManyToOne
 	private CompanyManager companyManager;
@@ -26,8 +28,8 @@ public class JobOffer implements Serializable {
 	private Date postDate;
 	private String sector;
 	private String studyLevel;
-	private String city;
-	private float experience;
+	private String country;
+	private Float experience;
 	private String skills;
 	private  String jobPreferences;
 	public String getJobPreferences() {
@@ -42,6 +44,19 @@ public class JobOffer implements Serializable {
 	public JobOffer() {
 		super();
 	}   
+	
+	public JobOffer(String title, Date postDate, String sector, String studyLevel, String country, Float experience,
+			String skills, String jobPreferences) {
+		super();
+		this.title = title;
+		this.postDate = postDate;
+		this.sector = sector;
+		this.studyLevel = studyLevel;
+		this.country = country;
+		this.experience = experience;
+		this.skills = skills;
+		this.jobPreferences = jobPreferences;
+	}
 	public int getIdOffer() {
 		return this.idOffer;
 	}
@@ -78,19 +93,21 @@ public class JobOffer implements Serializable {
 	public void setStudyLevel(String studyLevel) {
 		this.studyLevel = studyLevel;
 	}   
-	public String getCity() {
-		return this.city;
-	}
+	
 
+	public String getCountry() {
+		return country;
+	}
+	public void setCountry(String country) {
+		this.country = country;
+	}
 	public List<Candidate> getCandidates() {
 		return candidates;
 	}
 	public void setCandidates(List<Candidate> candidates) {
 		this.candidates = candidates;
 	}
-	public void setCity(String city) {
-		this.city = city;
-	}   
+	  
 	public float getExperience() {
 		return this.experience;
 	}

@@ -1,0 +1,128 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+		<h:form>
+			<h:dataTable value="#{JobOfferBean.joboffers}" var="e" border="2"
+				rendered="#{not JobOfferBean.showForm}">
+				<h:column id="c1">
+					<f:facet name="header">
+						<h:outputText value="id" />
+					</f:facet>
+					<h:outputText value="#{e.idOffer}" />
+				</h:column>
+				
+				
+				<h:column id="c2">
+					<f:facet name="header">
+						<h:outputText value="Title" />
+					</f:facet>
+					<h:outputText value="#{e.title}" />
+				</h:column>
+				
+				<h:column id="c3">
+					<f:facet name="header">
+						<h:outputText value="Post Date" />
+					</f:facet>
+					<h:outputText value="#{e.postDate}" />
+				</h:column>
+			
+				<h:column id="c4">
+					<f:facet name="header">
+						<h:outputText value="Sector" />
+					</f:facet>
+					<h:outputText value="#{e.sector}" />
+				</h:column>
+				
+				<h:column id="c5">
+					<f:facet name="header">
+						<h:outputText value="Study Level" />
+					</f:facet>
+					<h:outputText value="#{e.studyLevel}" />
+				</h:column>
+				
+				<h:column id="c6">
+					<f:facet name="header">
+						<h:outputText value="Country" />
+					</f:facet>
+					<h:outputText value="#{e.country}" />
+				</h:column>
+				
+				<h:column id="c7">
+					<f:facet name="header">
+						<h:outputText value="Experience" />
+					</f:facet>
+					<h:outputText value="#{e.experience}" />
+				</h:column>
+				
+				<h:column id="c8">
+					<f:facet name="header">
+						<h:outputText value="Skills" />
+					</f:facet>
+					<h:outputText value="#{e.skills}" />
+				</h:column>
+				
+				<h:column id="c9">
+					<f:facet name="header">
+						<h:outputText value="Job Preferences" />
+					</f:facet>
+					<h:outputText value="#{e.jobPreferences}" />
+				</h:column>
+				<h:column id="c10">
+					<f:facet name="header">
+						<h:outputText value="#" />
+					</f:facet>
+					<h:commandButton action="#{JobOfferBean.doSelect()}"
+						value="select">
+						<f:setPropertyActionListener value="#{e}"
+							target="#{JobOfferBean.joboffer}"></f:setPropertyActionListener>
+					</h:commandButton>
+				</h:column>
+			</h:dataTable>
+			
+			
+			<h:panelGrid columns="2" border="2"
+				rendered="#{JobOfferBean.showForm}">
+				<h:outputText value="Title :" />
+				<h:inputText value="#{JobOfferBean.joboffer.title}" />
+				
+				
+						<h:outputText value="Post Date" />
+		
+					<h:inputText value="#{JobOfferBean.joboffer.postDate}" />
+
+						<h:outputText value="Sector" />
+		
+					<h:inputText value="#{JobOfferBean.joboffer.sector}" />
+				
+						<h:outputText value="Study Level" />
+	
+					<h:inputText value="#{JobOfferBean.joboffer.studyLevel}" />
+				
+						<h:outputText value="Country" />
+				
+					<h:inputText value="#{JobOfferBean.joboffer.country}" />
+			
+						<h:outputText value="Experience" />
+			
+					<h:inputText value="#{JobOfferBean.joboffer.experience}" />
+			
+						<h:outputText value="Skills" />
+			
+					<h:inputText value="#{JobOfferBean.joboffer.skills}" />
+			
+		
+						<h:outputText value="Job Preferences" />
+				
+					<h:inputText value="#{JobOfferBean.joboffer.jobPreferences}" />
+				
+				<h:commandButton action="#{JobOfferBean.doAddJobOffer()}"
+					value="save/update" />
+				<h:commandButton action="#{JobOfferBean.doDeleteJobOffer()}"
+					value="delete" />
+				<h:commandButton action="#{JobOfferBean.doCancel()}" value="cancel" />
+			</h:panelGrid>
+			</h:form>
+</html>

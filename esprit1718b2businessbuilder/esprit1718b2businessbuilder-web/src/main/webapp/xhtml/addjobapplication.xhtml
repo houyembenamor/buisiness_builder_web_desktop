@@ -1,0 +1,90 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                  xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+                template="/template/template.xhtml" >
+                <ui:define name="title">
+                <title>job application</title>
+                </ui:define>
+                
+                <ui:define name="content">
+                 <div class="inner_page_agile">
+		<h3>Jobs</h3>
+		<p>Add Some Short Description</p>
+
+	</div>
+	<!--//banner -->
+	<!--/w3_short-->
+	<div class="services-breadcrumb_w3layouts">
+		<div class="inner_breadcrumb">
+
+			<ul class="short_w3ls">
+				<li><a href="index.html">Home</a><span>|</span></li>
+				<li>Jobs</li>
+			</ul>
+		</div>
+	</div>
+		<!--//w3_short-->
+	<!-- /inner_content -->
+	<div class="inner_content_info_agileits">
+		<div class="container">
+			<div class="tittle_head_w3ls">
+				<h3 class="tittle"> Job Application </h3>
+			</div>
+			<div class="inner_sec_grids_info_w3ls">
+				<div class="col-md-8 job_info_left">
+					<div class="but_list">
+						<div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
+							<ul id="myTab" class="nav nav-tabs" role="tablist">
+								<li role="presentation" class="active"><a href="#home" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">Add Job Application</a></li>
+								<li role="presentation"><a href="#{facesContext.externalContext.requestContextPath}/xhtml/jobapplications.jsf" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile">Display Job Application</a></li>
+							</ul>
+							
+							
+								<div class="clearfix"> </div>
+				<div class="w3layouts_mail_grid">
+					<h:form action="#" method="post" class="form">
+						<div class="col-md-6 wthree_contact_left_grid">
+							<h:inputText  type="text" name="Title"  pt:placeholder="Statut" required="true" value="#{JobApplicationBean.jobapplication.statut}"  style="width: 600px;"  />
+							<h:inputText type="text" name="Post Date" pt:placeholder="Wich positions interest you" required="true" value="#{JobApplicationBean.jobapplication.positionInterested}" style="width: 600px;"/>
+							<h:inputText type="text" name="Sector" pt:placeholder="The places you would like to work in" required="true" value="#{JobApplicationBean.jobapplication.country}" style="width: 600px;" />
+							<h:inputText type="text" name="Study Level" pt:placeholder="Which sectors are you interested in " required="true" value="#{JobApplicationBean.jobapplication.typeContract}" style="width: 600px;" />
+							<h:inputText type="text" name="Country" pt:placeholder="Date" required="true" value="#{JobApplicationBean.jobapplication.sector}" style="width: 600px;" />
+							
+							
+							  <h:inputText value="#{JobApplicationBean.jobapplication.dateOfBegin}" style="width: 600px;" >
+                <f:passThroughAttribute name="placeHolder" value="dd-MM-yyyy"/>
+                <f:convertDateTime pattern="dd-MM-yyyy"/>
+            </h:inputText>
+							<h:inputText type="text" name="skills" pt:placeholder="Username" required="true" value="#{JobApplicationBean.authBean.user.userName }" style="width: 600px;" />
+							
+							<h:commandButton type="submit" value="Submit" action="#{JobApplicationBean.doAddJobApplication()}" style="width: 600px;" />
+						</div>
+						
+						<div class="col-md-6 wthree_contact_left_grid">
+						<!-- <textarea name="Message" placeholder="Message..." required=""></textarea> -->	
+							
+						</div>
+						<div class="clearfix"> </div>
+
+					</h:form>
+				</div>
+								
+				
+							
+							
+							
+							
+							
+							</div>
+							</div>
+							</div>
+							</div>
+							</div>
+							</div>
+							
+                </ui:define>
+                </ui:composition>
+                

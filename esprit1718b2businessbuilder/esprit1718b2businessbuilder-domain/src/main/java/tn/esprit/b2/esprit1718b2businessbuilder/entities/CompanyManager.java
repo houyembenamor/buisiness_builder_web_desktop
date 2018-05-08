@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.lang.String;
 import java.util.List;
 
+import javax.interceptor.AroundInvoke;
 import javax.persistence.*;
 
 /**
@@ -11,14 +12,13 @@ import javax.persistence.*;
  *
  */
 @Entity
-
+@DiscriminatorValue("CompanyManager")
 public class CompanyManager extends User implements Serializable {
 	@OneToMany(mappedBy="companyManager")
 	private List<PartnershipOffer>partnershipoffers;
 	@OneToMany(mappedBy="companyManager",cascade = CascadeType.MERGE)
 	private List<Event> events;
-	@OneToMany(mappedBy="companyManager")
-	private List <JobOffer> jobOffers;
+
 	private String companyName;
 	private String companyAddress;
 	private String description;
@@ -26,7 +26,21 @@ public class CompanyManager extends User implements Serializable {
 
 	public CompanyManager() {
 		super();
-	}   
+	} 
+	
+	
+	public CompanyManager( String firstName, String lastName, String email, String userName, String password,
+			int phoneNumber,  String nationality,String companyName,String companyAddress,String description) {
+		super( firstName,lastName, email, userName,  password,
+		 phoneNumber,nationality);
+		this.companyName=companyName;
+		this.companyAddress=companyAddress;
+		this.description=description;
+	}
+	
+	
+	
+	
 	public String getCompanyName() {
 		return this.companyName;
 	}
@@ -60,11 +74,25 @@ public class CompanyManager extends User implements Serializable {
 	public void setEvents(List<Event> events) {
 		this.events = events;
 	}
-	public List<JobOffer> getJobOffers() {
-		return jobOffers;
+	
+
+
+	public CompanyManager(String companyName) {
+		this.companyName = companyName;
 	}
-	public void setJobOffers(List<JobOffer> jobOffers) {
-		this.jobOffers = jobOffers;
+
+
+	@Override
+	public String toString() {
+		return "CompanyManager [companyName=" + companyName + "]";
+	}
+
+
+	public CompanyManager(String companyName, String companyAddress, String description) {
+		super();
+		this.companyName = companyName;
+		this.companyAddress = companyAddress;
+		this.description = description;
 	}
 	
    

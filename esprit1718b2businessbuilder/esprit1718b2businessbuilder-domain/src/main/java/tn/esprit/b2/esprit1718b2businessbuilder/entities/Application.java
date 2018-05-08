@@ -18,7 +18,7 @@ public class Application implements Serializable {
 	
 	@ManyToOne
 	@JoinColumn(name = "idUser", referencedColumnName = "idUser", updatable = false, insertable = false)
-	private Candidate candidate;
+	private User candidate;
 	@ManyToOne
 	@JoinColumn(name = "idOffer", referencedColumnName = "idOffer", updatable = false, insertable = false)
 	private JobOffer joboffer;
@@ -33,6 +33,12 @@ public class Application implements Serializable {
 	}
 	public void setApplicationpk(ApplicationPK applicationpk) {
 		this.applicationpk = applicationpk;
+	}
+
+	public Application(User candidate, JobOffer joboffer) {
+		super();
+		this.candidate = candidate;
+		this.joboffer = joboffer;
 	}
 	
    

@@ -1,0 +1,350 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+                xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+                template="/template/template.xhtml" >
+                <ui:define name="title">
+                <title>Soft a Human Resource Management Category Bootstrap Responsive Web Template | Home :: w3layouts</title>
+                </ui:define>
+                
+                <ui:define name="content">
+                <div class="inner_page_agile">
+		<h3>Jobs</h3>
+		<p>Add Some Short Description</p>
+
+	</div>
+	<!--//banner -->
+	<!--/w3_short-->
+	<div class="services-breadcrumb_w3layouts">
+		<div class="inner_breadcrumb">
+
+			<ul class="short_w3ls">
+				<li><a href="index.html">Home</a><span>|</span></li>
+				<li>Jobs</li>
+			</ul>
+		</div>
+	</div>
+	<!--//w3_short-->
+	<!-- /inner_content -->
+	<div class="inner_content_info_agileits">
+		<div class="container">
+			<div class="tittle_head_w3ls">
+				<h3 class="tittle">Available Jobs </h3>
+			</div>
+			<div class="inner_sec_grids_info_w3ls">
+				<div class="col-md-8 job_info_left">
+					<div class="but_list">
+						<div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
+							<ul id="myTab" class="nav nav-tabs" role="tablist">
+								<li role="presentation" class="active"><a href="#home" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">Top Locations</a></li>
+								<li role="presentation"><a href="#profile" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile">Show Descriptions</a></li>
+							</ul>
+							<div id="myTabContent" class="tab-content">
+								<div role="tabpanel" class="tab-pane fade in active" id="home" aria-labelledby="home-tab">
+									<div class="tab_grid">
+				
+				
+
+			
+				<h:form rendered="#{not JobOfferBean.showForm}" method="post">
+			<c:forEach items="#{JobOfferBean.joboffers}" value="#{JobOfferBean.joboffers}" method="post" var="e" rendered="#{not JobOfferBean.showForm}">
+			
+	
+		
+
+								   <div class="col-sm-9">
+											<div class="location_box1">	
+ 
+                                     
+
+                                  <a href="location_single.html"><img src="#{facesContext.externalContext.requestContextPath}/template/images/loc2.jpg" alt=""/></a>
+				<h2><a href=""><h:outputText value="#{e.title}" /> </a>	<span class="m_1">Posted <h:outputText value="#{e.postDate}" /></span></h2>
+						<p><span class="m_2">Sector : <h:outputText value="#{e.sector}" /></span> Study Level:<h:outputText value="#{e.studyLevel}" /></p>
+				
+				<p><span class="m_2">Country : <h:outputText value="#{e.country}" /></span> Experience:<h:outputText value="#{e.experience}" /></p>
+			<p><span class="m_2">Skills : <h:outputText value="#{e.skills}" /></span> Job Preferences:<h:outputText value="#{e.jobPreferences}" /></p>
+				
+						<p><span class="m_2">Created By : <h:outputText value="#{e.companyManager.userName}" /></span> </p>
+				
+				
+			<p><span class="m_2"> Star</span></p><p:rating value="#{e.star}" cancel="false" readonly="true"/>
+                                      
+
+                                    
+					<div class="w3layouts_mail_grid">
+				<p>
+					<h:commandButton action="#{JobOfferBean.doSelect()}"
+						value="Select"  style="width: 150px;" >
+						<f:setPropertyActionListener value="#{e}"
+							target="#{JobOfferBean.joboffer}"></f:setPropertyActionListener>
+					</h:commandButton>
+					</p>
+					</div>
+					
+					
+					
+					
+			
+					
+					
+					
+					
+					
+		<!--	<ul class="links_bottom">
+													<li><a href="location_single.html"><i class="fa fa-envelope-o icon_1"> </i><span class="icon_text"> Email this Job</span></a></li>
+													<li><a href="location_single.html"><i class="fa fa-eye icon_1"> </i> <span class="icon_text">View full Job Description</span></a></li>
+													<li class="last"><a href="location_single.html"><span class="icon_text">More <i class="fa fa-caret-right icon_1"> </i></span></a></li>
+												</ul>
+												-->
+								</div>
+							
+										
+										<div class="clearfix"> </div> 
+										</div>	
+				
+					</c:forEach>
+				</h:form>
+				<div class="w3layouts_mail_grid">
+	<h:form action="#" method="post" class="form" rendered="#{JobOfferBean.showForm}">
+						<div class="col-md-6 wthree_contact_left_grid">
+							<h:inputText  type="text" name="Title"  pt:placeholder="Title" requiredMessage="N’oubliez pas de fournir une valeur
+dans ce champ!" required="true" value="#{JobOfferBean.joboffer.title}"  style="width: 600px;"  />
+						<h:inputText type="date" name="Post Date" pt:placeholder="Post Date" required="true" value="#{JobOfferBean.joboffer.postDate}" style="width: 600px;"/> 
+						
+						
+							<h:inputText type="text" name="Sector" pt:placeholder="Sector" required="true" value="#{JobOfferBean.joboffer.sector}" style="width: 600px;" />
+							<h:inputText type="text" name="Study Level" pt:placeholder="Study Level" required="true" value="#{JobOfferBean.joboffer.studyLevel}" style="width: 600px;" />
+							<h:inputText type="text" name="Country" pt:placeholder="Country" required="true" value="#{JobOfferBean.joboffer.country}" style="width: 600px;" />
+							<h:inputText type="text" name="exeperience" pt:placeholder="Exeperience" required="true" value="#{JobOfferBean.joboffer.experience}" style="width: 600px;" />
+							<h:inputText type="text" name="skills" pt:placeholder="Skills" required="true" value="#{JobOfferBean.joboffer.skills}" style="width: 600px;" />
+							
+							<h:inputText type="text" name="jobPreferences" pt:placeholder="username" required="true" value="#{JobOfferBean.authBean.user.userName }" style="width: 600px;" />
+		
+				
+					 <p:rating value="#{JobOfferBean.joboffer.star}" />
+
+                                
+					
+					<div class="clearfix"></div>
+				</div>
+							<h:commandButton type="submit" value="Submit/update"  render="@form" action="#{JobOfferBean.doAddJobOffer()}" style="width: 600px;" />
+									<h:commandButton action="#{JobOfferBean.doDeleteJobOffer()}" 
+						value="Delete" render="@form" style="background-color:red; width:600px ; color:white;"  />
+				
+					
+						
+						<div class="col-md-6 wthree_contact_left_grid">
+						<!-- <textarea name="Message" placeholder="Message..." required=""></textarea> -->	
+							
+						</div>
+						<div class="clearfix"> </div>
+
+					</h:form>
+					
+					</div>
+					
+									
+									
+									
+									
+									
+									
+
+								</div>
+								
+							</div>
+							
+						
+							
+							
+						</div>
+					</div>
+					
+					 <div class="col-sm-9">
+		
+				</div>
+				</div>
+				
+				
+				
+				</div>
+				
+				
+				
+				
+			</div>
+			
+			
+		
+			<div class="col-md-4 job_info_right">
+
+				<div class="widget_search">
+					<h5 class="widget-title">Search</h5>
+					<div class="widget-content">
+						<span>I'm looking for a ...</span>
+						<select class="form-control jb_1">
+					<option value="0">Job</option>
+					<option value="">Category</option>
+					<option value="">Category</option>
+					<option value="">Category</option>
+					<option value="">Category</option>
+				</select>
+						<span>in</span>
+						<input type="text" class="form-control jb_2" placeholder="Location"/>
+						<input type="text" class="form-control jb_2" placeholder="Industry / Role"/>
+						<input type="submit" value="Search"/>
+					</div>
+				</div>
+				<div class="col_3 permit">
+					<h3>Jobs by Category</h3>
+					<ul class="list_2">
+						<li><a href="#">Railway Recruitment</a></li>
+						<li><a href="#">Air Force Jobs</a></li>
+						<li><a href="#">Police Jobs</a></li>
+						<li><a href="#">Intelligence Bureau Jobs</a></li>
+						<li><a href="#">Army Jobs</a></li>
+						<li><a href="#">Navy Jobs</a></li>
+						<li><a href="#">BSNL Jobs</a></li>
+						<li><a href="#">Software Jobs</a></li>
+						<li><a href="#">Research Jobs</a></li>
+					</ul>
+				</div>
+				<div class="col_3 experience">
+					<h3>Work Experiance</h3>
+					<table class="table">
+						<tbody>
+							<tr class="unread checked">
+								<td class="hidden-xs">
+									<input type="checkbox" class="checkbox"/>
+								</td>
+								<td class="hidden-xs">
+									Junior
+								</td>
+								<td>
+									(56)
+								</td>
+							</tr>
+							<tr class="unread checked">
+								<td class="hidden-xs">
+									<input type="checkbox" class="checkbox"/>
+								</td>
+								<td class="hidden-xs">
+									Senior
+								</td>
+								<td>
+									(56)
+								</td>
+							</tr>
+							<tr class="unread checked">
+								<td class="hidden-xs">
+									<input type="checkbox" class="checkbox"/>
+								</td>
+								<td class="hidden-xs">
+									Middle
+								</td>
+								<td>
+									(56)
+								</td>
+							</tr>
+							<tr class="unread checked">
+								<td class="hidden-xs">
+									<input type="checkbox" class="checkbox"/>
+								</td>
+								<td class="hidden-xs">
+									Junior
+								</td>
+								<td>
+									(56)
+								</td>
+							</tr>
+							<tr class="unread checked">
+								<td class="hidden-xs">
+									<input type="checkbox" class="checkbox"/>
+								</td>
+								<td class="hidden-xs">
+									Junior
+								</td>
+								<td>
+									(56)
+								</td>
+							</tr>
+							<tr class="unread checked">
+								<td class="hidden-xs">
+									<input type="checkbox" class="checkbox"/>
+								</td>
+								<td class="hidden-xs">
+									Junior
+								</td>
+								<td>
+									(56)
+								</td>
+							</tr>
+							<tr class="unread checked">
+								<td class="hidden-xs">
+									<input type="checkbox" class="checkbox"/>
+								</td>
+								<td class="hidden-xs">
+									Junior
+								</td>
+								<td>
+									(56)
+								</td>
+							</tr>
+							<tr class="unread checked">
+								<td class="hidden-xs">
+									<input type="checkbox" class="checkbox"/>
+								</td>
+								<td class="hidden-xs">
+									Junior
+								</td>
+								<td>
+									(56)
+								</td>
+							</tr>
+							<tr class="unread checked">
+								<td class="hidden-xs">
+									<input type="checkbox" class="checkbox"/>
+								</td>
+								<td class="hidden-xs">
+									Junior
+								</td>
+								<td>
+									(56)
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="col_3 permit">
+					<h3>Work Permit</h3>
+					<table class="table">
+						<tbody>
+							<tr class="unread checked">
+								<td class="hidden-xs">
+									<input type="checkbox" class="checkbox"/>
+								</td>
+								<td class="hidden-xs">
+									Full time
+								</td>
+							</tr>
+							<tr class="unread checked">
+								<td class="hidden-xs">
+									<input type="checkbox" class="checkbox"/>
+								</td>
+								<td class="hidden-xs">
+									Part time
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+
+			</div>
+			<div class="clearfix"></div>
+		</div>
+	</div>
+                </ui:define>
+</ui:composition>

@@ -1,0 +1,121 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                  xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+                  xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+                template="/template/template.xhtml" >
+                <ui:define name="title">
+                <title>Soft a Human Resource Management Category Bootstrap Responsive Web Template | Home :: w3layouts</title>
+                </ui:define>
+                
+                <ui:define name="content">
+                 <div class="inner_page_agile">
+		<h3>Jobs</h3>
+		<p>Add Some Short Description</p>
+
+	</div>
+	<!--//banner -->
+	<!--/w3_short-->
+	<div class="services-breadcrumb_w3layouts">
+		<div class="inner_breadcrumb">
+
+			<ul class="short_w3ls">
+				<li><a href="index.html">Home</a><span>|</span></li>
+				<li>Jobs</li>
+			</ul>
+		</div>
+	</div>
+		<!--//w3_short-->
+	<!-- /inner_content -->
+	<div class="inner_content_info_agileits">
+		<div class="container">
+			<div class="tittle_head_w3ls">
+				<h3 class="tittle"> Job Offer </h3>
+			</div>
+			<div class="inner_sec_grids_info_w3ls">
+				<div class="col-md-8 job_info_left">
+					<div class="but_list">
+						<div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
+							<ul id="myTab" class="nav nav-tabs" role="tablist">
+								<li role="presentation" class="active"><a href="#home" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">Add Job Offer</a></li>
+								<li role="presentation"><a href="#{facesContext.externalContext.requestContextPath}/xhtml/jobs.jsf" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile">Display Job Offers</a></li>
+							</ul>
+							
+							
+								<div class="clearfix"> </div>
+				<div class="w3layouts_mail_grid">
+					<h:form action="#" method="post" class="form" >
+						<div class="col-md-6 wthree_contact_left_grid">
+							<h:inputText  type="text" name="Title"  pt:placeholder="Title" requiredMessage="N’oubliez pas de fournir une valeur
+dans ce champ!" required="true" value="#{JobOfferBean.joboffer.title}"  style="width: 600px;"  />
+					<!--  	<h:inputText type="date" name="Post Date" pt:placeholder="Post Date" required="true" value="#{JobOfferBean.joboffer.postDate}" style="width: 600px;"/> -->
+					  <h:inputText value="#{JobOfferBean.joboffer.postDate}" style="width: 600px;" >
+                <f:passThroughAttribute name="placeHolder" value="dd-MM-yyyy"/>
+                <f:convertDateTime pattern="dd-MM-yyyy"/>
+            </h:inputText>
+						
+							<h:inputText type="text" name="Sector" pt:placeholder="Sector" required="true" value="#{JobOfferBean.joboffer.sector}" style="width: 600px;" />
+							<h:inputText type="text" name="Study Level" pt:placeholder="Study Level" required="true" value="#{JobOfferBean.joboffer.studyLevel}" style="width: 600px;" />
+							<h:inputText type="text" name="Country" pt:placeholder="Country" required="true" value="#{JobOfferBean.joboffer.country}" style="width: 600px;" />
+							<h:inputText type="text" name="exeperience" pt:placeholder="Exeperience" required="true" value="#{JobOfferBean.joboffer.experience}" style="width: 600px;" />
+							<h:inputText type="text" name="skills" pt:placeholder="Skills" required="true" value="#{JobOfferBean.joboffer.skills}" style="width: 600px;" />
+							
+							<h:inputText type="text" name="jobPreferences" pt:placeholder="username" required="true" value="#{JobOfferBean.authBean.user.userName }" style="width: 600px;" />
+		
+							<div class="form-inputs">
+					<p>Specify your job preferences</p>
+					<ul>
+						<h:selectOneRadio value="#{JobOfferBean.joboffer.jobPreferences}" style="background-color: #616a6b; width:600px;" >
+   	<f:selectItem itemValue="Full-Time" itemLabel="Full-Time" style="background-color: black;" />
+   	<f:selectItem itemValue="Temporary" itemLabel="Temporary" style="color: black;" />
+   	<f:selectItem itemValue="Part-Time" itemLabel="Part-Time" />
+   	<f:selectItem itemValue="Trainee" itemLabel="Trainee" />
+   	<f:selectItem itemValue="Form a didtance" itemLabel="Form a didtance" />
+</h:selectOneRadio>
+					</ul>
+			
+				</div>
+					
+					
+				 <p:rating value="#{JobOfferBean.joboffer.star}" />
+				 <div class="clearfix"></div>
+							<h:commandButton type="submit" value="Submit" action="#{JobOfferBean.doAddJobOffer()}" style="width: 600px;" />
+						</div>
+						
+						<div class="col-md-6 wthree_contact_left_grid">
+						<!-- <textarea name="Message" placeholder="Message..." required=""></textarea> -->	
+							
+						</div>
+						<div class="clearfix"> </div>
+
+					</h:form>
+					
+					
+
+				</div>
+								
+				
+							
+							
+										
+<h:panelGrid rows="2" rowClasses="top,bottom" style="width:100%">
+
+<p:chart  type="pie" model="#{chartView.pieModel1}" style="width:400px;height:300px" />
+             
+
+</h:panelGrid>
+
+							
+							
+							</div>
+							</div>
+							</div>
+							</div>
+							</div>
+							</div>
+							
+                </ui:define>
+                </ui:composition>
+                

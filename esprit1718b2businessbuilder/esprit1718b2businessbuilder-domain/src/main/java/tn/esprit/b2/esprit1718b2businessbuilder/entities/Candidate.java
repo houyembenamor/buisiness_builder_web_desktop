@@ -11,41 +11,41 @@ import javax.persistence.*;
  *
  */
 @Entity
-
+@DiscriminatorValue("Candidate")
 public class Candidate extends User implements Serializable {
 
-	@OneToMany(mappedBy="candidate")
-	private List<jobApplication>jobApplications;
-	@OneToOne(mappedBy="candidate")
-	private Resume resume;
+
+	
+
 	@ManyToMany
 	private List<JobOffer> joboffers;
-	public List<jobApplication> getJobApplications() {
-		return jobApplications;
-	}
-	public void setJobApplications(List<jobApplication> jobApplications) {
-		this.jobApplications = jobApplications;
-	}
-	public Resume getResume() {
-		return resume;
-	}
-	public void setResume(Resume resume) {
-		this.resume = resume;
-	}
-
-	public List<JobOffer> getJoboffers() {
-		return joboffers;
-	}
-	public void setJoboffers(List<JobOffer> joboffers) {
-		this.joboffers = joboffers;
-	}
-
+	
 	private String domain;
+	private String resume;
 	private static final long serialVersionUID = 1L;
+	
+	
+	
+
+
+	
+
+	
 
 	public Candidate() {
 		super();
 	}   
+	public Candidate( String firstName, String lastName, String email, String userName, String password,
+			int phoneNumber,  String nationality,String domain) {
+		super( firstName,lastName, email, userName,  password,
+		 phoneNumber, nationality);
+		this.domain=domain;
+		
+	}
+	
+	
+	
+	
 	public String getDomain() {
 		return this.domain;
 	}
@@ -53,5 +53,27 @@ public class Candidate extends User implements Serializable {
 	public void setDomain(String domain) {
 		this.domain = domain;
 	}
+	@Override
+	public String toString() {
+		return "Candidate [ resume=" + resume + ", joboffers=" 
+				+ ", domain=" + domain + "]";
+	}
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+	public String getResume() {
+		return resume;
+	}
+	public void setResume(String resume) {
+		this.resume = resume;
+	}
+	public List<JobOffer> getJoboffers() {
+		return joboffers;
+	}
+	public void setJoboffers(List<JobOffer> joboffers) {
+		this.joboffers = joboffers;
+	}
+	
+
    
 }

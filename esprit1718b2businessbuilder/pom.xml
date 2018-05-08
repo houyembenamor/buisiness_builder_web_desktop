@@ -227,9 +227,12 @@
 					<configuration>
 						<failOnMissingWebXml>false</failOnMissingWebXml>
 						<packagingExcludes>WEB-INF/lib/*.jar</packagingExcludes>
+						 <strong><archiveClasses>false</archiveClasses></strong>
 						<archive>
+						
 							<manifest>
 								<addClasspath>true</addClasspath>
+								
 								<classpathPrefix>lib/</classpathPrefix>
 							</manifest>
 						</archive>
